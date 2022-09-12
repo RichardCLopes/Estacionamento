@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="estilos/main_estilo.css" />
-    <link rel="stylesheet" href="estilos/form_entrada.css" />
+    <link rel="stylesheet" href="estilos/forms.css" />
     <script
       type="text/javascript"
       charset="utf-8"
@@ -36,7 +36,7 @@
         <div id="opcoes">
           <ul>
               <li><input class="but" type="button" value="Estacionar" onclick="estac.onoffEstacionar()"></input></li>
-              <li><input class="but" type="button" value="Liberar" onclick="liberar()"></input></li>
+              <li><input class="but" type="button" value="Liberar" onclick="estac.onoffLiberar()"></input></li>
               <li><input class="but" type="button" value="Relatório" onclick="relatorio()"></input></li>
               <li><input class="but" type="button" value="Saldo" onclick="saldo()"></input></li>
           </ul>
@@ -84,6 +84,27 @@
               </div>
             
               <input class="estaccon" type="button" value="Concluído" onclick="estac.estacionar()"></input>
+            
+          </fieldset>         
+        </form>
+      </div>
+
+      <div id="dados_saida">
+        <form id="form">
+          <fieldset class="grupo" >
+            <legend class="legenda">Saída:</legend>
+
+              <div class="campo">
+                <label for="hrentrada"><strong>Horário de Saída:*</strong></label>
+                <input type="time" id="hrentrada" name="hrentrada" min="06:00" max="20:00">
+              </div>
+
+              <div class="campo">
+                  <label for="placa"><strong>Placa:*</strong></label>
+                  <input type="text" name="placa" id="placa">
+              </div>
+            
+              <input class="estaccon" type="button" value="Concluído" onclick="estac.liberar()"></input>
             
           </fieldset>         
         </form>

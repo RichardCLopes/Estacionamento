@@ -53,11 +53,16 @@ class Estacionamento {
       this.identificador += 11;
       this.vagas++;
     } else {
+      var container = document.getElementById("dados");
+      container.style.display = "none";
+      document.getElementById("form").reset();
       window.alert("Estacionamento Lotado");
     }
   }
 
-  liberar() {}
+  liberar() {
+    
+  }
 
   gerarRelatorio() {}
 
@@ -65,6 +70,16 @@ class Estacionamento {
 
   onoffEstacionar() {
     var container = document.getElementById("dados");
+
+    if (container.style.display === "block") {
+      container.style.display = "none";
+    } else {
+      container.style.display = "block";
+    }
+  }
+
+  onoffLiberar() {
+    var container = document.getElementById("dados_saida");
 
     if (container.style.display === "block") {
       container.style.display = "none";
