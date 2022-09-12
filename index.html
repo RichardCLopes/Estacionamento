@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="estilos/main_estilo.css" />
+    <link rel="stylesheet" href="estilos/form_entrada.css" />
+    <script
+      type="text/javascript"
+      charset="utf-8"
+      src="classes/Estacionamento.js"
+    ></script>
+    <script
+      type="text/javascript"
+      charset="utf-8"
+      src="classes/Veiculo.js"
+    ></script>
+    <script
+      type="text/javascript"
+      charset="utf-8"
+      src="classes/Carro.js"
+    ></script>
+    <script
+      type="text/javascript"
+      charset="utf-8"
+      src="classes/Moto.js"
+    ></script>
+    <title>Estacionamento</title>
+  </head>
+  <body>
+    <div  id="maincorp">
+      <header>
+        <h1 id="titulo">Estacionamento 2 Vias</h1>
+        <h3>(Aberto das 6:00 às 20:00)</h3>
+        <div id="opcoes">
+          <ul>
+              <li><input class="but" type="button" value="Estacionar" onclick="estac.onoffEstacionar()"></input></li>
+              <li><input class="but" type="button" value="Liberar" onclick="liberar()"></input></li>
+              <li><input class="but" type="button" value="Relatório" onclick="relatorio()"></input></li>
+              <li><input class="but" type="button" value="Saldo" onclick="saldo()"></input></li>
+          </ul>
+        </div>
+      </header>
+
+      <div id="dados">
+        <form id="form">
+          <fieldset class="grupo" >
+            <legend class="legenda">Entrada:</legend>
+
+              <div class="campo">
+                <label for="hrentrada"><strong>Horário de Entrada:*</strong></label>
+                <input type="time" id="hrentrada" name="hrentrada" min="06:00" max="20:00">
+              </div>
+
+              <div class="campo">
+                  <label for="veiculo"><strong>Veículo:*</strong></label>
+                  <input type="text" name="veiculo" id="veiculo">
+              </div>
+
+              <div class="campo">
+                  <label for="placa"><strong>Placa:*</strong></label>
+                  <input type="text" name="placa" id="placa">
+              </div>
+              
+              <div class="campo">
+                <label for="cor"><strong>Cor:</strong></label>
+                <input type="text" name="cor" id="cor">
+              </div>
+
+              <div class="campo">
+                <label for="prop"><strong>Proprietário:</strong></label>
+                <input type="text" name="prop" id="prop">
+              </div>
+
+              <div class="campo">
+                <label><strong>Tipo de veículo?</strong></label>
+                <label>
+                    <input type="radio" name="tipo" value="carro" style="width: 10%;" checked>Carro</input>
+                </label>
+                <label>
+                    <input type="radio" name="tipo" value="moto" style="width: 10%;">Moto</input>
+                </label>
+              </div>
+            
+              <input class="estaccon" type="button" value="Concluído" onclick="estac.estacionar()"></input>
+            
+          </fieldset>         
+        </form>
+      </div>
+
+      <div id="vagas">
+        <br>
+        <h3 id="qwe">Estacionamento Agora</h3>
+        <table id="att">
+          <tr>
+            <th>Vaga</th>
+            <th>Id</th>
+            <th>Veículo</th>
+            <th>Placa</th>
+            <th>Tipo</th>
+            <th>Cor</th>
+            <th>Dono</th>
+            <th>Entrada (Hrs)</th>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+  </body>
+</html>
