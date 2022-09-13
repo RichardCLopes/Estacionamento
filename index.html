@@ -37,7 +37,7 @@
           <ul>
               <li><input class="but" type="button" value="Estacionar" onclick="estac.onoffEstacionar()"></input></li>
               <li><input class="but" type="button" value="Liberar" onclick="estac.onoffLiberar()"></input></li>
-              <li><input class="but" type="button" value="Relatório" onclick="relatorio()"></input></li>
+              <li><input class="but" type="button" value="Relatório" onclick="estac.gerarRelatorio()"></input></li>
               <li><input class="but" type="button" value="Saldo" onclick="saldo()"></input></li>
           </ul>
         </div>
@@ -108,6 +108,22 @@
             
           </fieldset>         
         </form>
+      </div>
+
+      <div id="relatorio">
+        <br>
+        <h3 id="qwe">Relatório</h3>
+        <table id="rel">
+          <tr>
+            <th>Id</th>
+            <th>Placa</th>
+            <th>Tipo</th>
+            <th>Entrada (Hrs)</th>
+            <th>Saída (Hrs)</th>
+          </tr>
+        </table>
+        <br>
+        <input class="estaccon" type="button" value="Fechar Relatório" onclick="estac.fecharRelatorio()"></input>
       </div>
 
       <div id="preco">

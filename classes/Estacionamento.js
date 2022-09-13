@@ -77,7 +77,14 @@ class Estacionamento {
           tabela.rows[i + 1].cells[7].innerHTML,
           e_hr_sai
         );
-
+        var dados_rel = [
+          this.atual_est[i].id,
+          this.atual_est[i].placa,
+          tabela.rows[i + 1].cells[4].innerHTML,
+          tabela.rows[i + 1].cells[7].innerHTML,
+          e_hr_sai,
+        ];
+        this.relatorio.unshift(dados_rel);
         this.atual_est.splice(i, 1);
         tabela.deleteRow(i + 1);
       }
@@ -91,7 +98,51 @@ class Estacionamento {
     document.getElementById("form2").reset();
   }
 
-  gerarRelatorio() {}
+  gerarRelatorio() {
+    var container = document.getElementById("relatorio");
+    if (container.style.display === "block") {
+      container.style.display = "none";
+    } else {
+      container.style.display = "block";
+    }
+
+    var table = document.getElementById("rel");
+    for (var i = table.rows.length - 1; i > 0; i--) {
+      table.deleteRow(i);
+    }
+
+    for (let i = 0; i < this.relatorio.length; i++) {
+      var tabela = document.getElementById("rel");
+      var linha = tabela.insertRow(1);
+      var cel1 = linha.insertCell(0);
+      var cel2 = linha.insertCell(1);
+      var cel3 = linha.insertCell(2);
+      var cel4 = linha.insertCell(3);
+      var cel5 = linha.insertCell(4);
+      var elemento = this.relatorio[i];
+      cel1.innerHTML = elemento[0];
+      cel2.innerHTML = elemento[1];
+      cel3.innerHTML = elemento[2];
+      cel4.innerHTML = elemento[3];
+      cel5.innerHTML = elemento[4];
+    }
+
+    for (let i = 0; i < this.atual_est.length; i++) {
+      var tabela = document.getElementById("rel");
+      var tabela2 = document.getElementById("att");
+      var linha = tabela.insertRow(1);
+      var cel1 = linha.insertCell(0);
+      var cel2 = linha.insertCell(1);
+      var cel3 = linha.insertCell(2);
+      var cel4 = linha.insertCell(3);
+      var cel5 = linha.insertCell(4);
+      cel1.innerHTML = tabela2.rows[i + 1].cells[1].innerHTML;
+      cel2.innerHTML = tabela2.rows[i + 1].cells[3].innerHTML;
+      cel3.innerHTML = tabela2.rows[i + 1].cells[4].innerHTML;
+      cel4.innerHTML = tabela2.rows[i + 1].cells[7].innerHTML;
+      cel5.innerHTML = "Estacionado";
+    }
+  }
 
   getSaldo() {}
 
@@ -112,6 +163,16 @@ class Estacionamento {
       container.style.display = "none";
     } else {
       container.style.display = "block";
+    }
+  }
+
+  fecharRelatorio() {
+    var container = document.getElementById("relatorio");
+    container.style.display = "none";
+    var table = document.getElementById("rel");
+
+    for (var i = table.rows.length - 1; i > 0; i--) {
+      table.deleteRow(i);
     }
   }
 
