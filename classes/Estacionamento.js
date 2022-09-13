@@ -93,7 +93,8 @@ class Estacionamento {
     }
 
     this.saldo_total += valor;
-    document.getElementById("saldo").innerHTML = "R$" + this.saldo_total + ",00";
+    document.getElementById("saldo").innerHTML =
+      "R$" + this.saldo_total + ",00";
     document.getElementById("valor").innerHTML = "R$" + valor + ",00";
     var container = document.getElementById("preco");
     container.style.display = "block";

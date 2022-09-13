@@ -56,31 +56,34 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   display: none;
   margin: 1% 10% 1% 10%;
   width: 80%;
-  border: 2px solid rgb(50, 50, 50);;
+  border: 2px solid rgb(50, 50, 50);
 }
 
 #saldo_est {
   display: none;
   margin: 1% 15% 1% 15%;
   width: 70%;
-  border: 2px solid rgb(50, 50, 50);;
+  border: 2px solid rgb(50, 50, 50);
 }
 
-#valor{
+#valor {
   font-size: 3em;
   margin: 1%;
 }
 
-#saldo{
+#saldo {
   font-size: 3em;
   margin: 1%;
 }
 
-#tit_sal{
+#tit_sal {
   font-size: 2em;
   margin: 1%;
 }
 
 #relatorio {
   display: none;
+  margin: 1% 5% 1% 5%;
+  width: 90%;
+  border: 2px solid rgb(50, 50, 50);
 }
