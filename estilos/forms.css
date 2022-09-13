@@ -51,3 +51,15 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
   filter: invert(0.33);
 }
+
+#preco {
+  display: none;
+  margin: 1% 10% 1% 10%;
+  width: 80%;
+  border: 2px solid rgb(50, 50, 50);;
+}
+
+#valor{
+  font-size: 3em;
+  margin: 1%;
+}

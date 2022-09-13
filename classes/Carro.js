@@ -4,22 +4,25 @@ class Carro extends Veiculo {
   }
 
   calcularValorPago(horaEntrada, horaSaida) {
-    let hr_e = String(horaEntrada);
-    let hr_s = String(horaSaida);
-    let hrent = hr_e.slice(0, 2);
-    let minent = hr_e.slice(-2);
-    let hrsai = hr_s.slice(0, 2);
-    let minsai = hr_s.slice(-2);
-    let ent_min = parseInt(hrent, 10) * 60 + parseInt(minent, 10);
-    let sai_min = parseInt(hrsai, 10) * 60 + parseInt(minsai, 10);
-    let res = sai_min - ent_min;
-    if(res<=15){
+    var hr_e = String(horaEntrada);
+    var hr_s = String(horaSaida);
+    var hrent = hr_e.slice(0, 2);
+    var minent = hr_e.slice(-2);
+    var hrsai = hr_s.slice(0, 2);
+    var minsai = hr_s.slice(-2);
+    var ent_min = parseInt(hrent, 10) * 60 + parseInt(minent, 10);
+    var sai_min = parseInt(hrsai, 10) * 60 + parseInt(minsai, 10);
+    var res = sai_min - ent_min;
+    if (res <= 15) {
       return 0;
-    }else if(res>15 && res<=240){
-      return 4;
-    }else{
+    } else if (res > 15 && res <= 240) {
+      if (res < 60) {
+        return 4;
+      }
+      var horas = res / 60;
+      return 4 * parseInt(horas, 10);
+    } else {
       return 20;
     }
   }
-
 }

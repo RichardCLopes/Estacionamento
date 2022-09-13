@@ -73,7 +73,7 @@ class Estacionamento {
 
     for (let i = 0; i < this.atual_est.length; i++) {
       if (e_placasai == this.atual_est[i].placa) {
-        let valor = this.atual_est[i].calcularValorPago(
+        var valor = this.atual_est[i].calcularValorPago(
           tabela.rows[i + 1].cells[7].innerHTML,
           e_hr_sai
         );
@@ -83,6 +83,9 @@ class Estacionamento {
       }
     }
 
+    document.getElementById("valor").innerHTML = "R$" + valor + ",00";
+    var container = document.getElementById("preco");
+    container.style.display = "block";
     var container = document.getElementById("dados_saida");
     container.style.display = "none";
     document.getElementById("form2").reset();
@@ -110,6 +113,11 @@ class Estacionamento {
     } else {
       container.style.display = "block";
     }
+  }
+
+  pago() {
+    var container = document.getElementById("preco");
+    container.style.display = "none";
   }
 }
 
