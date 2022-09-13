@@ -6,12 +6,12 @@ class Estacionamento {
 
   estacionar() {
     if (this.vagas <= 20) {
-      let e_hr_ent = document.getElementById("hrentrada").value;
-      let e_veiculo = document.getElementById("veiculo").value;
-      let e_placa = document.getElementById("placa").value;
-      let e_cor = document.getElementById("cor").value;
-      let e_prop = document.getElementById("prop").value;
-      let e_tipo = document.querySelector('input[name="tipo"]:checked').value;
+      var e_hr_ent = document.getElementById("hrentrada").value;
+      var e_veiculo = document.getElementById("veiculo").value;
+      var e_placa = document.getElementById("placa").value;
+      var e_cor = document.getElementById("cor").value;
+      var e_prop = document.getElementById("prop").value;
+      var e_tipo = document.querySelector('input[name="tipo"]:checked').value;
 
       if (e_tipo == "carro") {
         var obje = new Carro(
@@ -21,10 +21,16 @@ class Estacionamento {
           e_cor,
           e_prop
         );
-        this.atual_est.push(obje);
+        this.atual_est.unshift(obje);
       } else {
-        var obj = new Moto(identificador, e_placa, e_veiculo, e_cor, e_prop);
-        this.vagas.push(obj);
+        var obje = new Moto(
+          this.identificador,
+          e_placa,
+          e_veiculo,
+          e_cor,
+          e_prop
+        );
+        this.atual_est.unshift(obje);
       }
 
       var tabela = document.getElementById("att");
@@ -61,7 +67,25 @@ class Estacionamento {
   }
 
   liberar() {
-    
+    var e_hr_sai = document.getElementById("hrsai").value;
+    var e_placasai = document.getElementById("placasai").value;
+    var tabela = document.getElementById("att");
+
+    for (let i = 0; i < this.atual_est.length; i++) {
+      if (e_placasai == this.atual_est[i].placa) {
+        let valor = this.atual_est[i].calcularValorPago(
+          tabela.rows[i + 1].cells[7].innerHTML,
+          e_hr_sai
+        );
+
+        this.atual_est.splice(i, 1);
+        tabela.deleteRow(i + 1);
+      }
+    }
+
+    var container = document.getElementById("dados_saida");
+    container.style.display = "none";
+    document.getElementById("form2").reset();
   }
 
   gerarRelatorio() {}
