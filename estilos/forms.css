@@ -59,8 +59,25 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   border: 2px solid rgb(50, 50, 50);;
 }
 
+#saldo_est {
+  display: none;
+  margin: 1% 15% 1% 15%;
+  width: 70%;
+  border: 2px solid rgb(50, 50, 50);;
+}
+
 #valor{
   font-size: 3em;
+  margin: 1%;
+}
+
+#saldo{
+  font-size: 3em;
+  margin: 1%;
+}
+
+#tit_sal{
+  font-size: 2em;
   margin: 1%;
 }
 

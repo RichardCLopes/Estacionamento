@@ -3,6 +3,7 @@ class Estacionamento {
   identificador = 121;
   atual_est = new Array();
   vagas = 1;
+  saldo_total = 0;
 
   estacionar() {
     if (this.vagas <= 20) {
@@ -83,6 +84,7 @@ class Estacionamento {
           tabela.rows[i + 1].cells[4].innerHTML,
           tabela.rows[i + 1].cells[7].innerHTML,
           e_hr_sai,
+          "R$" + valor + ",00",
         ];
         this.relatorio.unshift(dados_rel);
         this.atual_est.splice(i, 1);
@@ -90,6 +92,8 @@ class Estacionamento {
       }
     }
 
+    this.saldo_total += valor;
+    document.getElementById("saldo").innerHTML = "R$" + this.saldo_total + ",00";
     document.getElementById("valor").innerHTML = "R$" + valor + ",00";
     var container = document.getElementById("preco");
     container.style.display = "block";
@@ -119,12 +123,14 @@ class Estacionamento {
       var cel3 = linha.insertCell(2);
       var cel4 = linha.insertCell(3);
       var cel5 = linha.insertCell(4);
+      var cel6 = linha.insertCell(5);
       var elemento = this.relatorio[i];
       cel1.innerHTML = elemento[0];
       cel2.innerHTML = elemento[1];
       cel3.innerHTML = elemento[2];
       cel4.innerHTML = elemento[3];
       cel5.innerHTML = elemento[4];
+      cel6.innerHTML = elemento[5];
     }
 
     for (let i = 0; i < this.atual_est.length; i++) {
@@ -136,15 +142,25 @@ class Estacionamento {
       var cel3 = linha.insertCell(2);
       var cel4 = linha.insertCell(3);
       var cel5 = linha.insertCell(4);
+      var cel6 = linha.insertCell(5);
       cel1.innerHTML = tabela2.rows[i + 1].cells[1].innerHTML;
       cel2.innerHTML = tabela2.rows[i + 1].cells[3].innerHTML;
       cel3.innerHTML = tabela2.rows[i + 1].cells[4].innerHTML;
       cel4.innerHTML = tabela2.rows[i + 1].cells[7].innerHTML;
       cel5.innerHTML = "Estacionado";
+      cel6.innerHTML = "Em Aberto";
     }
   }
 
-  getSaldo() {}
+  getSaldo() {
+    var container = document.getElementById("saldo_est");
+
+    if (container.style.display === "block") {
+      container.style.display = "none";
+    } else {
+      container.style.display = "block";
+    }
+  }
 
   onoffEstacionar() {
     var container = document.getElementById("dados");

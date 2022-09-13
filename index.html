@@ -38,7 +38,7 @@
               <li><input class="but" type="button" value="Estacionar" onclick="estac.onoffEstacionar()"></input></li>
               <li><input class="but" type="button" value="Liberar" onclick="estac.onoffLiberar()"></input></li>
               <li><input class="but" type="button" value="Relatório" onclick="estac.gerarRelatorio()"></input></li>
-              <li><input class="but" type="button" value="Saldo" onclick="saldo()"></input></li>
+              <li><input class="but" type="button" value="Saldo" onclick="estac.getSaldo()"></input></li>
           </ul>
         </div>
       </header>
@@ -120,6 +120,7 @@
             <th>Tipo</th>
             <th>Entrada (Hrs)</th>
             <th>Saída (Hrs)</th>
+            <th>Valor (R$)</th>
           </tr>
         </table>
         <br>
@@ -129,6 +130,11 @@
       <div id="preco">
         <h1 id="valor"></h1>
         <input class="estaccon" type="button" value="Pago" onclick="estac.pago()"></input>
+      </div>
+
+      <div id="saldo_est">
+        <h1 id="tit_sal">Saldo</h1>
+        <h3 id="saldo">R$ 0,00</h3>
       </div>
 
       <div id="vagas">
