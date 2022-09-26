@@ -200,3 +200,22 @@ class Estacionamento {
 }
 
 estac = new Estacionamento();
+for(let i=0;i<this.contas.length;i++){
+  if(this.contas[i] instanceof Platinum){
+    var tipo = 'Platinum';
+  }else if(this.contas[i] instanceof Basica){
+    var tipo = 'Basico';
+  }else{
+    var tipo = 'Estudante';
+  }
+  var tabela = document.getElementById("tabela");
+  var linha = tabela.insertRow(1);
+  var cel1 = linha.insertCell(0);
+  var cel2 = linha.insertCell(1);
+  var cel3 = linha.insertCell(2);
+  var cel4 = linha.insertCell(3);
+  cel1.innerHTML = this.contas[i].num;
+  cel2.innerHTML = this.contas[i].nome;
+  cel3.innerHTML = tipo;
+  cel4.innerHTML = this.contas[i].saldo;
+}
